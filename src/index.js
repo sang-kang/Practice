@@ -24,21 +24,21 @@ $(document).ready(function () {
                 }
                 alert(`${messageFromServer.id}가 접속했습니다.`);
                 return;
-            }
-
-            if (messageFromServer.type == "disconnected") {
+            } else if (messageFromServer.type == "disconnected") {
                 alert(`${messageFromServer.id}가 나갔습니다.`);
                 return;
-            }
-
-            if (messageFromServer.type == "setUserId") {
-                alert(`${messageFromServer.originId}가 ${messageFromServer.id}로 바꼈습니다.`)
+            } else if (messageFromServer.type == "setUserId") {
+                if (!messageFromServer.notChanged) {
+                    alert(`${messageFromServer.originalId}가 ${messageFromServer.id}로 바꼈습니다.`)
+                } else {
+                    alert('다른 username을 입력하세요');
+                }
 
                 if (messageFromServer.validation) {
                     userName = messageFromServer.id;
                     console.log('validation=true: ' + userName);
                 }
-            } else {
+            } else {    //messageFromServer.type == "message"
                 let chatArea = document.querySelector(".chat");
                 $(".chat").append(`${messageFromServer.id}]${messageFromServer.text} \n`);
             }
@@ -50,12 +50,11 @@ $(document).ready(function () {
         let temporaryUserName = $(".user-name").val();
         console.log(`템포러리 유저네임: ${temporaryUserName}`);
 
-        let userIdSetting = {
+        client.send(JSON.stringify({        //구조체를 변수에 넣지않고 구조체 자체를 한방에
             type: "setUserId",
             id: temporaryUserName,
-            validation: false
-        }
-        client.send(JSON.stringify(userIdSetting))
+            validation: false       //자바스크립트 특성상 없어도 되지만 추후 질문 위해...
+        }))
     });
 
     $(".messageButton").click(function () {
@@ -69,7 +68,6 @@ $(document).ready(function () {
     });
 
     $(".disconnect-button").click(function () {
-        console.log('서버와의 연결 끊김1');
         client.close();     //이 부분 잘 못했음.
         console.log('서버와의 연결 끊김2');
     })

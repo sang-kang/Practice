@@ -37,24 +37,55 @@ wss.on('connection', function (ws) {
             let msg = JSON.parse(message);
             console.log(`${msg.type}도착`);
 
+            /*원래 하려했던 방법
+            * fucntion doesExist(){
+            *   clientToIdMap.forEach(function (value) {
+                    if (value == msg.id) {
+                        i++;
+                        return true;
+                    }
+                })
+            * }
+            *
+            * doesExist();
+            *
+            * if(doesExist){
+            *
+            * }
+            * */
+
             if (msg.type == "setUserId") {
-                if (clientToIdMap.get(ws) == msg.id) {
-                    console.log(`Map검색결과 중복 유저네임 있음`);
-                    ws.send(message);
+                let i = 0;
+                clientToIdMap.forEach(function (value) {
+                    if (value == msg.id) {
+                        i++;
+                        return;
+                    }
+                })
+
+                if (i > 0) {
+                    console.log(`Map검색결과 중복 유저네임 있음. 이 아이디 사용못함`);
+                    msg.notChanged = true;
+                    ws.send(JSON.stringify(msg));
+                    //msg.type = setUserId, msg.id = temporaryUserName, msg.validation=false
+                    //msg.notChanged = true
                     return;
                 } else {
                     console.log('Map검색결과 중복 유저네임 없음');
-                    let originId = clientToIdMap.get(ws);
+                    let originalId = clientToIdMap.get(ws);
                     clientToIdMap.set(ws, msg.id);
-                    msg.originId = originId;
+                    msg.originalId = originalId;            //originID는 별로 originalId, previouId가 맞음
 
                     //for loop한테 async??await걸어야겠다.
                     for (let client of wss.clients) {
                         client.send(JSON.stringify(msg));
                     }
+                    //여기까지는
+                    //msg.type = setUserId, msg.id = temporaryUserName,
+                    //msg.validation=false, msg.originalId = originalId
 
                     msg.validation = true;
-                    console.log('origin Id뭐 들어있나' + originId)
+                    console.log('origin Id뭐 들어있나' + originalId)
                     ws.send(JSON.stringify(msg));
                 }
             } else {
