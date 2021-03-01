@@ -1,6 +1,7 @@
 package ScheduleAssistant;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class PersonalAssistant {
@@ -42,13 +43,13 @@ public class PersonalAssistant {
     public static void main(String... args) {
         PersonalAssistant personalAssistant = new PersonalAssistant();
         List<MySchedule> mySchedulesLists = personalAssistant.mySchedulesLists;
-        LocalDate date1 = LocalDate.of(2021, 03, 04);
-        LocalDate date2 = LocalDate.of(2021, 03, 01);
-        LocalDate date3 = LocalDate.of(2021, 03, 05);
+        LocalDateTime date1 = LocalDateTime.of(2021, 03, 01, 12, 13, 01);
+        LocalDateTime date2 = LocalDateTime.of(2021, 03, 01, 12, 14, 01);
+        LocalDateTime date3 = LocalDateTime.of(2021, 03, 01, 12, 15, 01);
 
-        LocalDate date4 = LocalDate.of(2021, 10, 03);
-        LocalDate date5 = LocalDate.of(2021, 10, 02);
-        LocalDate date6 = LocalDate.of(2021, 10, 01);
+        LocalDateTime date4 = LocalDateTime.of(2021, 10, 01, 12, 30, 03);
+        LocalDateTime date5 = LocalDateTime.of(2021, 10, 01, 12, 20, 10);
+        LocalDateTime date6 = LocalDateTime.of(2021, 10, 01,12, 10, 04);
 
         mySchedulesLists.add(new MySchedule("clean", date1, date4));
         mySchedulesLists.add(new MySchedule("study", date2, date5));

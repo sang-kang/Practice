@@ -1,18 +1,19 @@
 package ScheduleAssistant;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class MySchedule /*implements Comparable<MySchedule>*/ {
     private String whatToDo;
-    private LocalDate startTime;
-    private LocalDate deadLine;
+    private LocalDateTime startTime;
+    private LocalDateTime deadLine;
 
     public MySchedule() {
 
     }
 
-    public MySchedule(String whatToDo, LocalDate startTime, LocalDate deadLine) {
+    public MySchedule(String whatToDo, LocalDateTime startTime, LocalDateTime deadLine) {
         this.whatToDo = whatToDo;
         this.startTime = startTime;
         this.deadLine = deadLine;
@@ -26,19 +27,19 @@ public class MySchedule /*implements Comparable<MySchedule>*/ {
         this.whatToDo = whatToDo;
     }
 
-    public LocalDate getStartTime() {
+    public LocalDateTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalDate startTime) {
+    public void setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
     }
 
-    public LocalDate getDeadLine() {
+    public LocalDateTime getDeadLine() {
         return deadLine;
     }
 
-    public void setDeadLine(LocalDate deadLine) {
+    public void setDeadLine(LocalDateTime deadLine) {
         this.deadLine = deadLine;
     }
 
