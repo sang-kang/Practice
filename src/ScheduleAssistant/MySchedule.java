@@ -1,10 +1,9 @@
 package ScheduleAssistant;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class MySchedule /*implements Comparable<MySchedule>*/ {
+public class MySchedule {
     private String whatToDo;
     private LocalDateTime startTime;
     private LocalDateTime deadLine;
@@ -65,8 +64,4 @@ public class MySchedule /*implements Comparable<MySchedule>*/ {
                 '}';
     }
 
-//    @Override
-//    public int compareTo(MySchedule myOtherSchedule) {
-//        return this.deadLine.compareTo(myOtherSchedule.getDeadLine());
-//    }     //이거 블락하면 위의 implements부분도 같이 블락.
 }
