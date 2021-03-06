@@ -1,12 +1,15 @@
 package ScheduleAssistant;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.Objects;
 
-public class MySchedule {
+public class MySchedule  {
     private String whatToDo;
     private LocalDateTime startTime;
     private LocalDateTime deadLine;
+    private Status status;
+
 
     public MySchedule() {
 
@@ -16,6 +19,7 @@ public class MySchedule {
         this.whatToDo = whatToDo;
         this.startTime = startTime;
         this.deadLine = deadLine;
+        this.status = Status.OPEN;
     }
 
     public String getWhatToDo() {
@@ -23,6 +27,7 @@ public class MySchedule {
     }
 
     public void setWhatToDo(String whatToDo) {
+
         this.whatToDo = whatToDo;
     }
 
@@ -42,17 +47,25 @@ public class MySchedule {
         this.deadLine = deadLine;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(whatToDo, startTime, deadLine, status);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MySchedule that = (MySchedule) o;
-        return Objects.equals(whatToDo, that.whatToDo) && Objects.equals(startTime, that.startTime) && Objects.equals(deadLine, that.deadLine);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(whatToDo, startTime, deadLine);
+        return Objects.equals(whatToDo, that.whatToDo) && Objects.equals(startTime, that.startTime) && Objects.equals(deadLine, that.deadLine) && status == that.status;
     }
 
     @Override
@@ -61,6 +74,7 @@ public class MySchedule {
                 "whatToDo='" + whatToDo + '\'' +
                 ", startTime=" + startTime +
                 ", deadLine=" + deadLine +
+                ", status=" + status +
                 '}';
     }
 
