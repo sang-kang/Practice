@@ -12,7 +12,7 @@ public class Ex3Test {
 
     @Test
     public void test() {
-        assertListEquals(Arrays.asList("ac, at"), generator.generateAll(Arrays.asList('c', 'a', 't'), 2));
+        assertListEquals(Arrays.asList("ac, at, ct"), generator.generateAll(Arrays.asList('c', 'a', 't'), 2));
     }
 
     private void assertListEquals(List<String> expected, List<String> actual) {
