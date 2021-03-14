@@ -1,4 +1,4 @@
-package exercise.ex1;
+package dev.sangyoon.exercise.ex1;
 
 import java.util.Arrays;
 

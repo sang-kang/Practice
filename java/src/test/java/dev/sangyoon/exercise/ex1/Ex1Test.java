@@ -1,13 +1,11 @@
-package exercise.ex1;
+package dev.sangyoon.exercise.ex1;
 
-import exercise.ex1.MidFinder;
-import org.junit.Test;
-
+import dev.sangyoon.exercise.ex1.MidFinder;
+import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-
-public class Ex1 {
+public class Ex1Test {
     private MidFinder finder = new MidFinder();
 
     class Spec {
