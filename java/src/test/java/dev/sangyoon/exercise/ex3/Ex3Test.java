@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class Ex3Test {
-    private PassGenerator generator;
+    private PassGenerator generator = new FixedLengthSortPassGenerator();
 
     @Test
     public void test1() {
@@ -23,7 +23,6 @@ public class Ex3Test {
     }
 
     private void assertListEquals(List<String> expected, List<String> actual) {
-        System.out.println(actual);
         for(int i = 0; i < expected.size(); i++){
             assertTrue(expected.get(i).compareTo(actual.get(i)) == 0, 
             String.format("expected %s, actual %s", expected.get(i), actual.get(i)));
