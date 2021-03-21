@@ -11,12 +11,16 @@ public enum Stat {
         this(initialValue);
         this.maxValue = Optional.of(maxValue);
     }
-    int value = 0;
-    Optional<Integer> maxValue = Optional.empty();
+    private int value = 0;
+    private Optional<Integer> maxValue = Optional.empty();
     public int value(){
         return value;
     }
-    public void add(int value){
-        this.value += value;
+    public Optional<Integer> maxValue() {
+        return maxValue;
+    }
+    public void add(int changeAmount){
+        this.value = Math.max(0, this.value + changeAmount);
+        this.maxValue.ifPresent(max -> this.value = Math.min(max, this.value));
     }
 }

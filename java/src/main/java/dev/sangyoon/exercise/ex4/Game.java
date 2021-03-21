@@ -14,11 +14,13 @@ public class Game {
         Player player = new Player();
         List<Action> availableActions = player.availableActions().stream().collect(Collectors.toList());
         Random random = new Random();
-        IntStream.range(1, 10).forEach(i -> {
+        IntStream.range(1, 50).forEach(i -> {
             try {
-                player.perform(availableActions.get(random.nextInt(availableActions.size())));
+                Action action = availableActions.get(random.nextInt(availableActions.size()));
+                player.perform(action);
+                System.out.println("Performed " + action.getClass().getSimpleName());
             } catch (RuntimeException e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         });
         System.out.println(player);

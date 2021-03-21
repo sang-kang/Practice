@@ -6,6 +6,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import dev.sangyoon.exercise.ex4.action.Action;
+import dev.sangyoon.exercise.ex4.action.Eat;
+import dev.sangyoon.exercise.ex4.action.Sleep;
 import dev.sangyoon.exercise.ex4.action.Work;
 
 public class Player {
@@ -14,19 +16,27 @@ public class Player {
 
     public void perform(Action action) {
         Map<String, StatChange> statChanges = action.statChanges();
-        if(stats.get(Stat.STAMINA.name()).value() + statChanges.get(Stat.STAMINA.name()).changeAmount() < 0) {
-            throw new RuntimeException("Not Enough Stamina");
+        Set<Stat> exceptions = Arrays.asList(Stat.STAMINA, Stat.MONEY).stream()
+            .filter(stat -> statChanges.containsKey(stat.name()) && (stats.get(stat.name()).value() + statChanges.get(stat.name()).changeAmount() < 0))
+            .collect(Collectors.toSet());
+        if(!exceptions.isEmpty()) {
+            throw new RuntimeException("Not Enough " + 
+                exceptions.stream().map(Stat::name).collect(Collectors.joining(",", "[", "]")) + 
+                " to perform " + action.getClass().getSimpleName());
+        }
+        if(stats.get(Stat.STRESS.name()).value() + statChanges.get(Stat.STRESS.name()).changeAmount() >= Stat.STRESS.maxValue().get().intValue()){
+            throw new RuntimeException("Too much stress to perform " + action.getClass().getSimpleName());
         }
         statChanges.values().forEach(statChange -> stats.get(statChange.type()).add(statChange.changeAmount()));
     }
 
     public Set<Action> availableActions(){
-        return Set.of(new Work());
+        return Set.of(new Work(), new Eat(), new Sleep());
     }
 
     @Override
     public String toString() {
-        return stats.values().stream().map(stat -> stat.name() + ": " + stat.value()).reduce("", (a, b) -> a + "\n" + b);
+        return stats.values().stream().map(stat -> stat.name() + ": " + stat.value()).collect(Collectors.joining("\n"));
     }
 
     
