@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MedianFinder implements FindMedian{
-
+    //형 답안임.
     private List<Integer> numbers = new ArrayList<>();
 
     /**
@@ -18,5 +18,5 @@ public class MedianFinder implements FindMedian{
         System.out.println(medianIndex);
         return numbers.get((int)medianIndex);
     }
-    
+
 }
