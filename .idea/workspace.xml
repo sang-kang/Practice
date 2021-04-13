@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="392b7734-fa7b-42f8-b57d-16f251a1b4db" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex4/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex1/MidFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex1/MidFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex2/MedianFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex2/MedianFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex4/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex4/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex4/action/Eat.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex4/action/Eat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex4/action/Sleep.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex4/action/Sleep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex4/action/Work.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex4/action/Work.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex4/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex4/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/java/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex7/LargestSumSubArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/dev/sangyoon/exercise/ex7/LargestSumSubArray.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,6 +114,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.LargestSumSubArray" />
@@ -156,6 +162,9 @@
       <workItem from="1618242760020" duration="65000" />
       <workItem from="1618242863465" duration="72000" />
       <workItem from="1618242982493" duration="127000" />
+      <workItem from="1618245732249" duration="429000" />
+      <workItem from="1618248108846" duration="453000" />
+      <workItem from="1618327938632" duration="608000" />
     </task>
     <servers />
   </component>
