@@ -156,42 +156,30 @@ public class LargestSumSubArray {
 //    }
 
     //잘된풀이. 그러나 온전히 내가 생각한 사고는 아니다.
+    /*형 의견에 따른 코드의 수정이 있었다. if(i == 0){continue;} 이 부분을 지우고 초기화 시켜버렸고, 맨 밑애 if(currentSum > maxSum){}부분을 밖으로 빼버렸다.
+      확식히 코드가 간결해졌다.
+    * */
     public void getLargestSum(int[] input) {
         int currentStart = 0;
         int currentEnd = 0;
-        int currentSum = 0;
+        int currentSum = input[0];
         int maxStart = 0;
         int maxEnd = 0;
-        int maxSum = 0;
+        int maxSum = input[0];
 
         for (int i = 0; i < input.length; i++) {
-            if (i == 0) {
-                currentStart = i;
-                currentEnd = i;
-                currentSum = input[i];
-                maxStart = i;
-                maxEnd = i;
-                maxSum = input[i];
-                continue;
-            }
-
             if (currentSum <= 0) {
                 currentStart = i;
                 currentEnd = i;
                 currentSum = input[i];
-                if (currentSum > maxSum) {
-                    maxStart = currentStart;
-                    maxEnd = currentEnd;
-                    maxSum = currentSum;
-                }
             } else {
                 currentEnd++;
                 currentSum += input[i];
-                if (currentSum > maxSum) {
-                    maxStart = currentStart;
-                    maxEnd = currentEnd;
-                    maxSum = currentSum;
-                }
+            }
+            if (currentSum > maxSum) {
+                maxStart = currentStart;
+                maxEnd = currentEnd;
+                maxSum = currentSum;
             }
         }
 
