@@ -1,4 +1,4 @@
-package dev.sangyoon.ex6;
+package dev.sangyoon.exercise.ex6;
 
 public class MaxSumList {
     
