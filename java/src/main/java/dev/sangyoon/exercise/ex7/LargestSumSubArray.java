@@ -1,4 +1,6 @@
 package dev.sangyoon.exercise.ex7;
+// git commit 넘버.   commit d3a23f07314bc8c218d9f9908332b02c2a14ed02
+
 /**
  * 가장 기본적인 탐색문제
  * Largest sum subarray
@@ -185,6 +187,29 @@ public class LargestSumSubArray {
 
         System.out.printf("%d 부터 %d 까지의 합 %d 가 가장 크다", maxStart, maxEnd, maxSum);
     }
+
+    // 형은 이렇게 풀었을 것. 훨씬 경제적
+//    int[] input = {0,0,0,1,0,0,0};  // 3 3 1
+//    int currentStart = -1;
+//    int currentSum = -1;
+//    int maxSum = Integer.MIN_VALUE;
+//    int maxStart = -1;
+//    int maxEnd = -1;
+//        for(int i = 0; i < input.length; i++){
+//        if(currentSum <= 0) {
+//            currentStart = i;
+//            currentSum = 0;
+//        }
+//        currentSum += input[i];
+//        if(currentSum > maxSum) {
+//            maxStart = currentStart;
+//            maxEnd = i;
+//            maxSum = currentSum;
+//        }
+//    }
+//        System.out.println(maxStart + ", " + maxEnd + ", " + maxSum);
+
+
 
 
     public static void main(String... args) {
