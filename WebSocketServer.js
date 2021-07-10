@@ -3,7 +3,7 @@ let wss = new WebSocketServer({port: 8888});
 
 const clientToIdMap = new Map();
 let i = 1;
-wss.on('connection', function (ws) {
+wss.on('git loggiconnection', function (ws) {
 
     //클라이언트 접속시 임의의 아이디 부여하고 클라이언트에게 해당 정보 send
     console.log('현재 접속한 클라이언트 수' + wss.clients.size);
@@ -38,7 +38,7 @@ wss.on('connection', function (ws) {
             console.log(`${msg.type}도착`);
 
             /*원래 하려했던 방법
-            * fucntion doesExist(){
+            * let doesExist = fucntion (){
             *   clientToIdMap.forEach(function (value) {
                     if (value == msg.id) {
                         i++;
@@ -74,9 +74,9 @@ wss.on('connection', function (ws) {
                     console.log('Map검색결과 중복 유저네임 없음');
                     let originalId = clientToIdMap.get(ws);
                     clientToIdMap.set(ws, msg.id);
-                    msg.originalId = originalId;            //originID는 별로 originalId, previouId가 맞음
+                    msg.originalId = originalId;            //변수명을 originId가 아니라 originalId로 하는게 의미상 맞음.
 
-                    //for loop한테 async??await걸어야겠다.
+                    //async??await 거는 방법으로 하면 어떨까?
                     for (let client of wss.clients) {
                         client.send(JSON.stringify(msg));
                     }
